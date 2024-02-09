@@ -21,6 +21,12 @@ public class Program
             T.ConvertToMMNegativeTest();
             T.ConvertToCMNegativeTest();
             T.ConvertToMNegativeTest();
+            T.ConvertToMmZeroTest();
+            T.ConvertToCmZeroTest();
+            T.ConvertToMZeroTest();
+            T.ConvertToMmDecimalTest();
+            T.ConvertToCmDecimalTest();
+            T.ConvertToMDecimalTest();
             return;
         }
         else 
