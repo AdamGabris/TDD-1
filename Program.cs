@@ -1,57 +1,45 @@
-﻿
-public class Converter
+using C = Converter.Convert;
+using T = Converter.Test;
+public class Program
 {
-    int expected;
-    int actual;
-
-    public static double ConvertToMm(double inches)
+   public static void Main(string[] args)
     {
-        return inches * 25.4;
-    }
-    public static double ConvertToCm(double inches)
-    {
-        return inches * 2.54;
-    }
-    public static double ConvertToM(double inches)
-    {
-        return inches * 0.0254;
-    }
-    public void Test()
-    {
-        if (expected == actual)
+        if (args.Length < 2 || args.Length > 3 || !double.TryParse(args[0], out _) || !args[1].StartsWith("-") || (args.Length == 3 && !args[2].Equals("-t")))
         {
-            Console.WriteLine("Success");
+            Console.WriteLine("Please provide a number of inches to convert and use the correct input style (number -unit -t).");
+            return;
+        }
+        double inches = double.Parse(args[0]);
+        string unit = args[1];
+        bool runTests = args.Length > 2 && args[2] == "-t";
+
+        if (runTests)
+        {
+            T.ConvertToMmTest();
+            T.ConvertToCmTest();
+            T.ConvertToMTest();
+            return;
+        }
+        else 
+        {
+        if (unit == "-mm")
+        {
+            Console.WriteLine(C.ConvertToMm(inches));
+        }
+        else if (unit == "-cm")
+        {
+            Console.WriteLine(C.ConvertToCm(inches));
+        }
+        else if (unit == "-m")
+        {
+            Console.WriteLine(C.ConvertToM(inches));
         }
         else
         {
-            Console.WriteLine("Failure");
+            Console.WriteLine("Please provide a valid unit of measurement (mm, cm, m).");
+        }
         }
     }
 }
-
-
-class Program
-{
-    static void Main(string[] args)
-    {
-        foreach (var item in args)
-        {
-            if (item.Contains("mm"))
-            {
-                Console.WriteLine(Converter.ConvertToMm);
-            }
-            else if (item.Contains("cm"))
-            {
-                Console.WriteLine(Converter.ConvertToCm);
-
-            }
-            else if (item.Contains("m"))
-            {
-                Console.WriteLine(Converter.ConvertToM);
-
-            }
-        }
-    }
-}
-
+ 
 
