@@ -25,6 +25,27 @@ public static void ConvertToMmTest()
         double actualM = Convert.ConvertToM(inches);
         TestFunction(expectedM, actualM, "ConvertToMTest");
     }
+        public static void ConvertToMMNegativeTest()
+    {
+        double inches = -10;
+        double expectedMm = inches * 25.4;
+        double actualMm = Convert.ConvertToMm(inches);
+        TestFunction(expectedMm, actualMm, "ConvertToMmNegativeTest");
+    }
+    public static void ConvertToCMNegativeTest()
+    {
+        double inches = -10;
+        double expectedCm = inches * 2.54;
+        double actualCm = Convert.ConvertToCm(inches);
+        TestFunction(expectedCm, actualCm, "ConvertToCmNegativeTest");
+    }
+    public static void ConvertToMNegativeTest()
+    {
+        double inches = -10;
+        double expectedM = inches * 0.0254;
+        double actualM = Convert.ConvertToM(inches);
+        TestFunction(expectedM, actualM, "ConvertToMNegativeTest");
+    }
 
     public static void TestFunction<T>(T expected, T actual, string description = "Test")
     {

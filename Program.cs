@@ -18,6 +18,9 @@ public class Program
             T.ConvertToMmTest();
             T.ConvertToCmTest();
             T.ConvertToMTest();
+            T.ConvertToMMNegativeTest();
+            T.ConvertToCMNegativeTest();
+            T.ConvertToMNegativeTest();
             return;
         }
         else 
