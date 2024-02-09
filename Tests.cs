@@ -111,6 +111,16 @@ public static void ConvertToMmTest()
         double actualM = Math.Round(Convert.ConvertToM(inches), 2);
         TestFunction(expectedM, actualM, "ConvertToMAndRoundTest");
     }
+    public static void ConvertBackTest()
+    {
+        double inches = 10.5;
+        double mm = Convert.ConvertToMm(inches);
+        double cm = Convert.ConvertToCm(inches);
+        double m = Convert.ConvertToM(inches);
+        TestFunction(inches, Convert.ConvertMmToInches(mm), "ConvertBackMmTest");
+        TestFunction(inches, Convert.ConvertCmToInches(cm), "ConvertBackCmTest");
+        TestFunction(inches, Convert.ConvertMToInches(m), "ConvertBackMTest");
+    }
 
     public static void TestFunction<T>(T expected, T actual, string description = "Test")
     {
