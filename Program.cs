@@ -27,6 +27,9 @@ public class Program
             T.ConvertToMmDecimalTest();
             T.ConvertToCmDecimalTest();
             T.ConvertToMDecimalTest();
+            T.ConvertToMmAndRoundTest();
+            T.ConvertToCmAndRoundTest();
+            T.ConvertToMAndRoundTest();
             return;
         }
         else 
